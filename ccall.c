@@ -3,7 +3,7 @@
 #define ___VERSION 406006
 #include <gambit.h>
 
-void doinc();
+int doinc(int);
 
 #define SCHEME_LIBRARY_LINKER ____20_main__
 
@@ -20,8 +20,8 @@ int main(int argc, char* argv[])
 
 	___setup(&params);
 	printf("start\n");
-	doinc();
-	printf("end\n");
+	int result = doinc(42);
+	printf("end (result: %d)\n", result);
 	___cleanup();
 
 	return 0;

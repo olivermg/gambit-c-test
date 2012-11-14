@@ -1,8 +1,9 @@
 (define (bla msg)
   (print msg))
 
-(c-define (doinc) () void "doinc" ""
-  (print "doinc\n"))
+(c-define (doinc a) (int) int "doinc" ""
+  (print "doinc\n")
+  (+ a 1))
 
 ;(bla "wurst\n")
 
