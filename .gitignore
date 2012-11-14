@@ -1,0 +1,5 @@
+*.o
+main
+main.c
+main_.c
+
