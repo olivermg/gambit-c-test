@@ -4,7 +4,7 @@ CC_OPTIONS = -cc-options "-D___LIBRARY"
 
 main: ccall.o main.o main_.o
 	#$(GSC) -verbose -exe -o main ccall.o main.o main_.o
-	$(CC) -Wall -o main ccall.o main.o main_.o -lgambc
+	$(CC) -Wall -o main ccall.o main.o main_.o -L/Users/oliver/opt/gambit/current/lib -lgambc
 
 main.c: main.scm
 	$(GSC) -verbose -o main.c -c main.scm
@@ -19,7 +19,7 @@ main_.o: main_.c
 	$(GSC) -verbose -obj $(CC_OPTIONS) -o main_.o main_.c
 
 ccall.o: ccall.c
-	$(CC) -Wall -o ccall.o -c ccall.c
+	$(CC) -Wall -I/Users/oliver/opt/gambit/current/include -o ccall.o -c ccall.c
 
 clean:
 	rm -vf main *.o main.c main_.c
