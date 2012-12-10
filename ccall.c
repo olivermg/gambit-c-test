@@ -1,9 +1,11 @@
 #include <stdio.h>
+#include "struct.h"
 
 #define ___VERSION 406006
 #include <gambit.h>
 
 int doinc(int);
+struct mystruct* makestruct(int, int);
 
 #define SCHEME_LIBRARY_LINKER ____20_main__
 
@@ -20,8 +22,13 @@ int main(int argc, char* argv[])
 
 	___setup(&params);
 	printf("start\n");
+
 	int result = doinc(42);
+
+	struct mystruct* s = makestruct(3, 5);
+
 	printf("end (result: %d)\n", result);
+	printf("mystruct (%p): (%d, %d)\n", s, s->a, s->b);
 	___cleanup();
 
 	return 0;
